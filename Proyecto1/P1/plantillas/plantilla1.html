@@ -1,0 +1,42 @@
+<html>
+    <body>
+        {% include "superior/barra.html" %}
+
+        <h1> Hola mundos desdes HTML! </h1>
+
+        {% comment %}
+            Esto es un 
+            comentario
+        {% endcomment %}
+
+        {% if nombre_persona == 'Jose M.' %}
+            <p>Lo imparte el profesor titular </p>
+
+        {% else %}
+            <p>Lo imparte el profesor suplente</p>
+        {% endif %}
+
+
+
+        <p>
+            Hola el nombre es : {{nombre_persona|upper}} {{apellido_persona.upper}}
+        </p>
+        <p>
+            Dia: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}
+        </p>
+        <p>
+            <strong>Temas:</strong>
+        </p>
+        <p>
+            <ul>
+                {% if temas %}
+                    {% for elTema in temas %}
+                        <li>{{elTema|first|lower}}</li>
+                    {%endfor%}
+                {% else %}
+                    <p>No hay elementos</p>
+                {% endif %}
+            </ul>
+        </p>
+    </body>
+</html>
